@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="search">
+	<select id="Search1" parameterType="tourVO" resultType="tourVO">
+		select * from tourapi where name = #{name}
+	</select>
+	<insert id="addtour"  parameterType="tourVO">
+		insert into tourapi value (#{contentid}, #{addr1}, #{mapx}, #{mapy}, #{title}, #{img})
+	</insert>
+	<select id="tourList" resultType="tourVO">
+		select * from tourapi
+	</select>
+	<select id="search2" parameterType="tourVO" resultType="tourVO">
+		select * from tourapi where title like concat('%', #{title}, '%')
+	</select>
+</mapper>	
